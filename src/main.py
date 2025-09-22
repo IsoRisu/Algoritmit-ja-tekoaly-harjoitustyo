@@ -143,23 +143,36 @@ def player_loop():
     command = input("press a row 0-6 to play the piece or press P to let the AI play")
     return command
 
-
-def main():
+def start_new():
     # Main loop
     board = Board()
     piece = 0
     board.print_board()
+    move = None
+    return board, piece, move
+
+
+def main():
+    board, piece, move = start_new()
     while True:
         # Read input commands from the program
-        # command = input().strip()
-    
-        command = player_loop()
-        if command == "P":
-            move = minimax(board, 5, -math.inf, math.inf, True, piece)[1]
-        else:
-            move = int(command)
+        command = input().strip()
 
-        board.play(move,piece)
+        if "PLAY" in command:
+            move = minimax(board, 5, -math.inf, math.inf, True, piece)[1]
+            board.play(move,piece)
+            move = move
+            
+
+        if "MOVE" in command:
+            player_choice = int(command.replace("MOVE:",""))
+            print(player_choice)
+            board.play(player_choice,piece)
+            move = player_choice
+
+        if "RESET" in command:
+            main()
+
 
         if piece == 0:
             piece += 1
