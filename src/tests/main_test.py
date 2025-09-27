@@ -13,6 +13,14 @@ class TestBoard(unittest.TestCase):
         # Play a piece to middle
         self.board.play(3,0)
         result = self.board.print_board()
-        print(result)
+        expected_output = (
+            "| | | | | | | |\n"
+            "| | | | | | | |\n"
+            "| | | | | | | |\n"
+            "| | | | | | | |\n"
+            "| | | | | | | |\n"
+            "| | | |0| | | |\n"
+            " 0 1 2 3 4 5 6"
+        )
 
-        self.assertEqual(result, """| | | | | | | |\n| | | | | | | |\n| | | | | | | |\n| | | | | | | |\n| | | | | | | |\n| | | |0| | | |\n 0 1 2 3 4 5 6""")
+        self.assertEqual(result,expected_output)

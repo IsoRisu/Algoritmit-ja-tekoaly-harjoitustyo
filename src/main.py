@@ -55,14 +55,14 @@ class Board:
             for c in range(self.COLS - 3):
                 if all(self.board[r - i][c + i] == piece for i in range(4)):
                     return True
-
         return False
 
     def print_board(self):
-        # Prints the board
-        for row in self.board:
-            print('|' + '|'.join(row) + '|')
-        return ' ' + ' '.join(str(i) for i in range(self.COLS))
+        # Returns the board as a string
+        rows = ['|' + '|'.join(row) + '|' for row in self.board]
+        board_str = "\n".join(rows)
+        col_str = ' ' + ' '.join(str(i) for i in range(self.COLS))
+        return board_str + "\n" + col_str
 
     def get_valid_locations(self):
         # Returns all playable columns
