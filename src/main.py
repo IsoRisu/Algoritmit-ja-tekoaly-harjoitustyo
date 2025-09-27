@@ -62,7 +62,7 @@ class Board:
         # Prints the board
         for row in self.board:
             print('|' + '|'.join(row) + '|')
-        print(' ' + ' '.join(str(i) for i in range(self.COLS)))
+        return ' ' + ' '.join(str(i) for i in range(self.COLS))
 
     def get_valid_locations(self):
         # Returns all playable columns
@@ -179,7 +179,7 @@ def main():
         else:
             piece = 0
 
-        board.print_board()
+        print(board.print_board())
         print(command)
         print(f"MOVE:{move}")
 
