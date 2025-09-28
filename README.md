@@ -6,6 +6,13 @@ Kurssin tekoälyalustan kanssa käyttaminen:
  - Avaa kurssin tekoälyalusta
  - Laita projekti tekoälyalustaan
 
+Komentorivi:
+
+ - Käynnistä peli komentoriviltä.
+ - Syöttämällä MOVE:x voit pelata omia siirtoja
+ - Syöttämällä PLAY: annat tekoälyn siirtää
+ - Syöttämällä RESET: Resetoit pelin
+
 Unittestaus
 
  - Lataa projekti
