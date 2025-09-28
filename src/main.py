@@ -143,6 +143,14 @@ def player_loop():
     command = input("press a row 0-6 to play the piece or press P to let the AI play")
     return command
 
+def end_logic(board,piece):
+    win = board.is_winning(str(piece))
+    if win:
+        print(board.print_board())
+        print(f"Game over: {piece} won")
+        return True
+    return False
+
 def start_new():
     # Main loop
     board = Board()
@@ -170,10 +178,7 @@ def main():
         if "RESET" in command:
             main()
 
-        win = board.is_winning(str(piece))
-        if win:
-            print(board.print_board())
-            print(f"Game over: {piece} won")
+        if end_logic(board,piece):
             break
 
         if piece == 0:
@@ -181,10 +186,8 @@ def main():
         else:
             piece = 0
 
-
-        print(board.print_board())
         print(command)
-        print(f"MOVE:{move}")
+        print(board.print_board())
 
 if __name__ == "__main__":
     main()
