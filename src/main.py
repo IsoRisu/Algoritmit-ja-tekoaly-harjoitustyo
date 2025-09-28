@@ -151,6 +151,14 @@ def end_logic(board,piece):
         return True
     return False
 
+def change_turn(piece):
+    if piece == 0:
+        piece += 1
+        return piece
+    else:
+        piece = 0
+        return piece
+
 def start_new():
     # Main loop
     board = Board()
@@ -181,10 +189,7 @@ def main():
         if end_logic(board,piece):
             break
 
-        if piece == 0:
-            piece += 1
-        else:
-            piece = 0
+        piece = change_turn(piece)
 
         print(command)
         print(board.print_board())
