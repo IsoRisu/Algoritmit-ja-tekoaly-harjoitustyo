@@ -8,6 +8,7 @@ class Board:
 
     def __init__(self):
         self.board = [[' ' for i in range(self.COLS)] for i in range(self.ROWS)]
+        self.history = []
         # Makes a board consiting of empty strings
         self.last_move = None
         self.valid_locations = []
@@ -23,6 +24,7 @@ class Board:
         row = self.get_next_open_row(col)
         self.board[row][col] = str(piece)
         self.last_move = (row, col)
+        self.history.append((piece,col))
 
     def get_next_open_row(self, col):
         # Searches the playable row
@@ -193,6 +195,6 @@ def main():
 
         print(command)
         print(board.print_board())
-
+        print(board.history)
 if __name__ == "__main__":
     main()
