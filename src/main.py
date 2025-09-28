@@ -12,7 +12,7 @@ class Board:
         self.last_move = None
         self.valid_locations = []
 
-    def can_play(self, col): 
+    def can_play(self, col):
         # Checks that column is not full and in the range of the board
         return 0 <= col < self.COLS and self.board[0][col] == ' '
 
@@ -161,8 +161,6 @@ def main():
         if "PLAY" in command:
             move = minimax(board, 5, -math.inf, math.inf, True, piece)[1]
             board.play(move,piece)
-            move = move
-            
 
         if "MOVE" in command:
             player_choice = int(command.replace("MOVE:",""))
