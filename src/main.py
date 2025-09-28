@@ -166,18 +166,23 @@ def main():
 
         if "MOVE" in command:
             player_choice = int(command.replace("MOVE:",""))
-            print(player_choice)
             board.play(player_choice,piece)
             move = player_choice
 
         if "RESET" in command:
             main()
 
+        win = board.is_winning(str(piece))
+        if win:
+            print(board.print_board())
+            print(f"Game over: {piece} won")
+            break
 
         if piece == 0:
             piece += 1
         else:
             piece = 0
+
 
         print(board.print_board())
         print(command)
